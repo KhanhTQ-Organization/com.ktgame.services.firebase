@@ -1,6 +1,9 @@
 ﻿using Cysharp.Threading.Tasks;
 using com.ktgame.core;
-//using Firebase;
+
+#if FIREBASE
+using Firebase;
+#endif
 
 namespace com.ktgame.services.firebase
 {
@@ -22,8 +25,10 @@ namespace com.ktgame.services.firebase
 			}
 
 			_connecting = true;
-			// var dependencyStatus = await FirebaseApp.CheckAndFixDependenciesAsync().AsUniTask();
-			// Initialized = dependencyStatus == DependencyStatus.Available;
+#if FIREBASE
+			var dependencyStatus = await FirebaseApp.CheckAndFixDependenciesAsync().AsUniTask();
+			Initialized = dependencyStatus == DependencyStatus.Available;
+#endif
 			_connecting = false;
 		}
 	}
