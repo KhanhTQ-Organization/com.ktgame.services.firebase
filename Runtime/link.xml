@@ -1,0 +1,5 @@
+<linker>
+    <assembly fullname="com.ktgame.services.firebase" ignoreIfMissing="1">
+        <namespace fullname="com.ktgame.services.firebase" preserve="all"/>
+    </assembly>
+</linker>
